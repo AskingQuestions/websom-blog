@@ -1,0 +1,38 @@
+#include "src/server/entities"
+
+namespace Blog {}
+
+class Blog.Module extends Websom.Module, Websom.Standard.BlogSystem.Module {
+	public Websom.Permission postsPermission = null;
+	public Websom.Permission postsView = null;
+
+	override Websom.Status start() {
+		// Server start.
+	}
+
+	override void permissions() {
+		this.postsPermission = this.registerPermission("Posts.Admin")
+			.setDescription("Posts admin permission.");
+
+		this.postsView = this.registerPermission("Posts.View")
+			.isPublic()
+			.setDescription("Public posts permission.");
+	}
+
+	override void collections() {
+		let db = this.server.database.central;
+
+		this.posts = db.collection("posts");
+		Blog.Post.applySchema(this.posts);
+		this.registerCollection(this.posts);
+
+		this.archives = db.collection("archives");
+		Blog.Archive.applySchema(this.archives);
+		this.registerCollection(this.archives);
+
+		this.server.api
+			.generateAdminEndpoints(this.posts, "/posts", this.postsPermission)
+			.exposeSchemaTo(this.postsPermission)
+			.generateSearchEndpoint(new <string>array(), this.postsView);
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"name": "websom-blog",
+	"version": "1.0.0",
+	"description": "",
+	"main": "module.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "",
+	"websom": {
+		"type": "module"
+	},
+	"keywords": [
+		"websom",
+		"websom-package",
+		"websom-module",
+		"blog",
+		"blogging-system",
+		"blogging",
+		"websom-blog"
+	]
+}

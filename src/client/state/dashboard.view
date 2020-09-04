@@ -1,0 +1,22 @@
+info {
+	"name": "blog-dashboard-tabs",
+	"type": "script"
+}
+
+script {
+	import post from "../images/post.svg";
+
+	export default ctx => {
+		const tabs = [
+			{
+				name: "Posts",
+				route: "posts",
+				image: post
+			}
+		];
+
+		if (ctx.fillState)
+			for (let tab of tabs)
+				ctx.store.commit("registerDashboardTab", tab);
+	}
+}

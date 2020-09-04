@@ -1,0 +1,33 @@
+info {
+	"name": "blog-dashboard-posts",
+	"type": "page",
+	"route": "posts/:mode?/:id?",
+	"nested": "/websom.dashboard"
+}
+
+template {
+	<rich-editor display-name="Posts" collection="posts" route="/posts">
+		<template v-slot:edit-main="sp">
+			<card>
+				<input-text v-model="sp.data.title" placeholder="Post Title" required />
+			</card>
+		</template>
+	</rich-editor>
+}
+
+script {
+	export default {
+		data: () => ({
+			
+		}),
+		methods: {
+		},
+		mounted() {
+		
+		}
+	}
+}
+
+style {
+	
+}

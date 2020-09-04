@@ -1,0 +1,26 @@
+{
+	"name": "websom-blog",
+	"id": "websom-blog",
+	"key": "websom-blog",
+	"resources": [
+		{
+			"path": "./src/client/components"
+		},
+		{
+			"path": "./src/client/components/dashboard"
+		},
+		{
+			"path": "./src/client/state"
+		},
+		{
+			"path": "./src/client/script"
+		},
+		{
+			"path": "./src/client/style"
+		}
+	],
+	"npm": {},
+	"composer": {},
+	"adapters": {},
+	"config": {}
+}
